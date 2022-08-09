@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex-Clone</title>
+</head>
+
+<style>
+    h2{
+        text-align: center;
+    }
+    .box{
+        margin: 0 auto;
+        height:400pt;
+        width: 600px;
+        padding: 20px;
+        background: pink;
+        border:2px solid #333;
+    }
+</style>
+
+<body bgcolor="#b0e0e6">
+    <nav>
+        <a href="{{url_for('index_func')}}">Home</a>
+    </nav>    
+    <center>
+
+    <h2 style="color: red">Thank you for using Regex clone</h2> 
+    <p><b>These are your input details: <br><br>
+       Regex:{{r}}  <br><br>
+       String:{{s}}
+    </b>
+    </p>
+    {% if match|length %}
+        <h2 style="color:#c71515">Match Found</h2>
+    <b>    
+        Total no of matches in given string is:{{count}} <br><br>
+         match:{{match}} <br><br>
+     
+         {% for i in range(count) %}
+         Match-{{i+1}}, of {{r}} at Start index: {{match[i][0]}} and End index :{{match[i][1]}} <br>
+         {% endfor %}
+     {% else %}
+         <h2>Match Not Found</h2>
+     {% endif %}
+    </b>
+
+   
+
+    
+</body>
+</html>
