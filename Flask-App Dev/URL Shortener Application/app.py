@@ -6,14 +6,14 @@ import os
 
 app = Flask(__name__)
 
-short_url=''
-long_url=''
+
 basedir=os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///'+os.path.join(basedir,'data.sqllite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db=SQLAlchemy(app)
 migrate = Migrate(app, db)
-
+short_url=''
+long_url=''
 class URLData(db.Model):
     __tablename__='url_shortener'
     id=db.Column(db.Integer,primary_key=True)
@@ -25,15 +25,14 @@ class URLData(db.Model):
         self.short_url=short_url
         
         
-    # def __repr__(self):
-    #    return "Long url - {} and Short url-{}".format(self.long_url,self.short_url)
+    def __repr__(self):
+        return "Long url - {} and Short url-{}".format(self.long_url,self.short_url)
 
 @app.before_first_request
 def create_tables():
     db.create_all()
 
-# db.session.query(URLData).delete()    
-# db.session.commit
+
 
 
 @app.route('/',methods=["GET","POST"])
