@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<style>
+    
+h1 {
+    text-align: center;
+  }
+  
+
+ 
+</style>
+<script>
+    function myFunction() {
+      /* Get the text field */
+      var copyText = document.getElementById("myInput");
+    
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    
+      /* Copy the text inside the text field */
+      navigator.clipboard.writeText(copyText.value);
+      
+      /* Alert the copied text */
+      alert("Copied the text: " + copyText.value);
+    }
+    </script>
+
+<h1 style="color:brown">Welcome to Url-Shortener Application </h1>
+
+<div class="center" >
+    <form style=" width: 25vw;" action="{{url_for('home')}}" method="POST">
+        
+   
+            <label style="color:rgb(17, 0, 255); font-size:25px">Long Url</label> 
+            <input type="text" style="height: 25px; width:600px;" size="30"   name="in_1" placeholder="Enter the original URL" >
+            <br><br>
+ 
+          <button type='submit' class="btn btn-primary">Submit</button>
+        </form>
+<br>        
+    <div style=" width: 25vw">
+            <label style="color:rgb(17, 0, 255); font-size:25px">Short Url</label>
+         <input type="text" style="height: 25px; width:600px;" size="40" value="{{s}}" id="myInput" ><br><br>
+         
+         <button type='submit'  class="btn btn-success" onclick="myFunction()" style= "cursor:pointer" > Copy url</button>
+        </div>
+     </div>
+  
+    
+    {% endblock %}

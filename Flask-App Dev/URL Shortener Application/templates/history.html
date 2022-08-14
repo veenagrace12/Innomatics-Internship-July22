@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    View All URL's
+{% endblock %}
+<br><br>
+{% block content %}
+
+
+<style>
+
+    table,th,td {
+       border: 1px solid black;
+    }
+
+    
+
+    
+ </style>
+
+<h1 style="color:brown"> History of all URL's </h1>
+<table  style="background-color:#dddd2f">
+
+
+    <tr>
+
+        <th>ID</th>
+        <th>Original URL</th>
+        <th>Short URL</th>
+        
+
+    </tr>
+
+    <tbody id="forbar">
+
+   {% for row in all_urls %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.long_url}}</td>
+        <td>{{row.short_url}}</td>
+    </tr>
+    {% endfor %}
+
+
+{% endblock%}
