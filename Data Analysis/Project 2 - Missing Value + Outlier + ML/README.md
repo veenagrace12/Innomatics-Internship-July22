@@ -2,7 +2,10 @@ EDA + Missing values and Outliers - Detection and Treatment + Model Building
 
 
 
+
+
 Dataset Description
+
 
 An individual’s annual income results from various factors. Intuitively, it is influenced by the individual’s education level, age, gender, 
 occupation, etc.
