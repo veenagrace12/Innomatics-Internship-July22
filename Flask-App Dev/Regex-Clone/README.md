@@ -1,4 +1,4 @@
-Project - Clone of regex101.com
+# Project - Clone of regex101.com
 
 This project is Cloning the core functionality of the Regex101.com web application.
 
